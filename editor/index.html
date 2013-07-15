@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="css/method-draw.css" type="text/css"/>
   <link rel="stylesheet" href="css/fonts.css" type="text/css"/>
 <!--{endif}-->
-  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
 
 
@@ -27,7 +26,7 @@
   <script type="text/javascript" src="lib/touch.js"></script>
   <script type="text/javascript" src="lib/js-hotkeys/jquery.hotkeys.min.js"></script>
   <script type="text/javascript" src="lib/jquerybbq/jquery.bbq.min.js"></script>
-  <script type="text/javascript" src="icons/jquery.svgicons.js"></script>
+  <script type="text/javascript" src="lib/jquery.svgicons.js"></script>
   <script type="text/javascript" src="lib/jgraduate/jquery.jgraduate.js"></script>
   <script type="text/javascript" src="lib/contextmenu/jquery.contextMenu.js"></script>
   <script type="text/javascript" src="lib/jquery-ui/jquery-ui-1.8.17.custom.min.js"></script>
@@ -48,10 +47,11 @@
   <script type="text/javascript" src="lib/contextmenu.js"></script>
   <script type="text/javascript" src="lib/jgraduate/jpicker.min.js"></script>
   <script type="text/javascript" src="lib/mousewheel.js"></script>
-  <script type="text/javascript" src="extensions/ext-eyedropper.js"></script>
-  <script type="text/javascript" src="extensions/ext-shapes.js"></script>
   <script type="text/javascript" src="extensions/ext-grid.js"></script>
+  <script type="text/javascript" src="extensions/ext-cellbutton.js"></script>
+  <script type="text/javascript" src="extensions/ext-mathjax.js"></script>
   <script type="text/javascript" src="lib/requestanimationframe.js"></script>
+  
   <script type="text/javascript" src="lib/taphold.js"></script>
 <!--{endif}-->
 
@@ -145,11 +145,15 @@
     </div>
   </div>
   
-
-  
 </div>
 
-<div id="tools_top" class="tools_panel">
+<!------------------------------------------------------------------------------------------------------------>
+<!------------------------------------------------------------------------------------------------------------>
+<!----------------------------------------     REMOVED    ---------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------>
+<!------------------------------------------------------------------------------------------------------------>
+
+<div id="tools_top" class="tools_panel" style="width:0px;height:0px;">
 
 	<div id="canvas_panel" class="context_panel">
 	  
@@ -503,6 +507,17 @@
 	</div>
 
 </div> <!-- tools_top -->
+
+
+<!------------------------------------------------------------------------------------------------------------>
+<!------------------------------------------------------------------------------------------------------------>
+<!---------------------------------------- END OF REMOVED ---------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------>
+<!------------------------------------------------------------------------------------------------------------>
+
+
+
+
 	<div id="cur_context_panel">
 		
 	</div>
@@ -512,15 +527,17 @@
 	<div class="tool_button" id="tool_select" title="Select Tool [V]"></div>
 	<div class="tool_button" id="tool_fhpath" title="Pencil Tool [P]"></div>
 	<div class="tool_button" id="tool_line" title="Line Tool [L]"></div>
-	<div class="tool_button" id="tool_rect" title="Square/Rect Tool [R]"></div>
-	<div class="tool_button" id="tool_ellipse" title="Ellipse/Circle Tool [C]"></div>
-	<div class="tool_button" id="tool_path" title="Path Tool [P]"></div>
+	
+	<div class="tool_button" id="tool_rect" title="Square/Rect Tool [R]" style="display:none;"></div>
+	<div class="tool_button" id="tool_ellipse" title="Ellipse/Circle Tool [C]" style="display:none;"></div>
+	<div class="tool_button" id="tool_path" title="Path Tool [P]" style="display:none;"></div>
+	
 	<div class="tool_button" id="tool_text" title="Text Tool [T]"></div>
 	<div class="tool_button" id="tool_zoom" title="Zoom Tool [Z]"></div>
 	
-  <div id="color_tools">
-        <div id="tool_switch" title="Switch stroke and fill colors [X]"></div>
-  			<div class="color_tool active" id="tool_fill">
+  <div id="color_tools" style="display:none;">
+        <div id="tool_switch" title="Switch stroke and fill colors [X]" style="display:none;"></div>
+  			<div class="color_tool active" id="tool_fill" style="display:none;">
   				<label class="icon_label" title="Change fill color"></label>
 				  <div class="color_block">
 					  <div id="fill_bg"></div>
@@ -528,7 +545,7 @@
 				  </div>
   			</div>
 
-  			<div class="color_tool" id="tool_stroke">
+  			<div class="color_tool" id="tool_stroke" style="display:none;">
   					<label class="icon_label" title="Change stroke color"></label>
   				<div class="color_block">
   					<div id="stroke_bg"></div>

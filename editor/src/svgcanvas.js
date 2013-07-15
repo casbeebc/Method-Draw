@@ -6928,10 +6928,10 @@ this.setResolution = function(x, y) {
 		svgroot.unsuspendRedraw(handle);
 		background = document.getElementById("canvas_background");
 	  if (background) {
-	    background.setAttribute("x", -1)
-	    background.setAttribute("y", -1)
-	    background.setAttribute("width", x+2)
-	    background.setAttribute("height", y+2)
+	    background.setAttribute("x", -1);
+	    background.setAttribute("y", -1);
+	    background.setAttribute("width", x+2);
+	    background.setAttribute("height", y+2);
 	  }
 		call("changed", [svgcontent]);
 	}

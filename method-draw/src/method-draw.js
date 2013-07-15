@@ -29,13 +29,13 @@
 		var is_ready = false;
 		curConfig = {
 		  canvas_expansion: 1, 
-		  dimensions: [580,400], 
+		  dimensions: [740,520],
 		  initFill: {color: 'fff', opacity: 1},
 		  initStroke: {width: 1.5, color: '000', opacity: 1},
 			initOpacity: 1,
 			imgPath: 'images/',
 			extPath: 'extensions/',
-			jGraduatePath: 'jgraduate/images/',
+			jGraduatePath: 'lib/jgraduate/images/',
 			extensions: [],
 			initTool: 'select',
 			wireframe: false,
@@ -838,6 +838,11 @@
 						var l = pos.left+34;
 						var w = holder.width()*-1;
 						var time = holder.data('shown_popop')?200:0;
+						
+						if (evt.currentTarget.id === 'tools_shapelib_show'){
+    						time = holder.data('shown_popop')?0:0;
+    				    }
+    				    
 						timer = setTimeout(function() {
 							// Show corresponding menu
 							if(!shower.data('isLibrary')) {
@@ -2263,7 +2268,7 @@
 					svgCanvas.setMode("pathedit")
 					path.toEditMode(elems[0]);
 					svgCanvas.clearSelection();
-          updateContextPanel();
+					updateContextPanel();
 				}
 			}
 			
