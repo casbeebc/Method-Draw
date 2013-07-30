@@ -1,5 +1,5 @@
 /*
- * ext-cellButton.js
+ * ext-biobutton-cell.js
  *
  * Licensed under the Apache License, Version 2
  *
@@ -7,15 +7,15 @@
  *
  */
  
-methodDraw.addExtension("cellbutton", function() {
-        function importImage(url) {
+methodDraw.addExtension("biobutton-cell", function() {
+        function importImage(url, rank) {
             
             
             var newImage = svgCanvas.addSvgElementFromJson({
         			"element": "image",
         			"attr": {
         				"x": 0,
-        				"y": 0,
+        				"y": rank*200,
         				"width": 0,
         				"height": 0,
         				"id": svgCanvas.getNextId(),
@@ -71,19 +71,19 @@ methodDraw.addExtension("cellbutton", function() {
 			name: "Animal Cell",
 			// For more notes on how to make an icon file, see the source of
 			// the hellorworld-icon.xml
-			svgicons: "extensions/ext-cellbutton.xml",
+			svgicons: "extensions/ext-biobutton-cell.xml",
 			
 			// Multiple buttons can be added in this array
 			buttons: [{
 				// Must match the icon ID in helloworld-icon.xml
-				id: "cellbutton", 
+				id: "biobutton-cell", 
 				
 				// This indicates that the button will be added to the "mode"
 				// button panel on the left side
 				type: "mode", 
 				
 				// Tooltip text
-				title: "Adds an animal cell", 
+				title: "Add an animal cell", 
 				
 				// Events
 				events: {
@@ -91,30 +91,59 @@ methodDraw.addExtension("cellbutton", function() {
 						// The action taken when the button is clicked on.
 						// For "mode" buttons, any other button will 
 						// automatically be de-pressed.
-						svgCanvas.setMode("animal_cell");
-						importImage("extensions/imagelib/animal_cell.svg");
+						
+						methodDraw.canvas.setMode("select");
+						importImage("extensions/imagelib/animal_cell.svg",0);
+						/*
+						importImage("extensions/imagelib/animal_cell.svg",0);
+						importImage("extensions/imagelib/apoptosis_cell_0.svg",1);
+						importImage("extensions/imagelib/apoptosis_cell_1.svg",2);
+						*/
+						
 					}
 				}
 			}],
 			// This is triggered when the main mouse button is pressed down 
 			// on the editor canvas (not the tool panels)
 			mouseDown: function() {
+			     /*
 				// Check the mode on mousedown
 				if(svgCanvas.getMode() == "animal_cell") {
-				
+    				svgCanvas.setMode('select');
+
+    				
 					// The returned object must include "started" with 
 					// a value of true in order for mouseUp to be triggered
 					return {started: true};
+					
 				}
+				*/
+				//methodDraw.canvas.setMode("select");
+				/*
+				return {
+    				started: true
+    			}
+    			*/
 			},
 			
 			// This is triggered from anywhere, but "started" must have been set
 			// to true (see above). Note that "opts" is an object with event info
 			mouseUp: function(opts) {
+			     
+    			/*
 				// Check the mode on mouseup
 				if(svgCanvas.getMode() == "animal_cell") {
-				    
+    				svgCanvas.setMode('select');
 				}
+				*/
+				//methodDraw.canvas.setMode("select");
+				/*
+    			return {
+    				keep: true,
+    				element: svgCanvas,
+    				started: false
+    			}
+    			*/
 			},
 			
 			callback: function() {
