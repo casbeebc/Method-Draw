@@ -11,9 +11,10 @@ JS_FILES=\
   lib/touch.js \
   lib/js-hotkeys/jquery.hotkeys.min.js \
   lib/jquerybbq/jquery.bbq.min.js \
-  icons/jquery.svgicons.js \
+  lib/jquery.svgicons.js \
   lib/jgraduate/jquery.jgraduate.js \
   lib/contextmenu/jquery.contextmenu.js \
+  lib/dropzone/dropzone.js \
   src/browser.js \
   src/svgtransformlist.js \
   src/math.js \
@@ -31,15 +32,19 @@ JS_FILES=\
   lib/jquery-ui/jquery-ui-1.8.17.custom.min.js \
   lib/jgraduate/jpicker.min.js \
   lib/mousewheel.js \
-	extensions/ext-eyedropper.js \
 	extensions/ext-grid.js \
-	extensions/ext-shapes.js \
+	extensions/ext-biobutton-bacteria.js \
+	extensions/ext-biobutton-cell.js \
+	extensions/ext-biobutton-neuron.js \
+	extensions/ext-mathjax.js \
 	lib/requestanimationframe.js \
 	lib/taphold.js
 
 CSS_FILES=\
 	lib/jgraduate/css/jPicker.css \
   lib/jgraduate/css/jgraduate.css \
+  lib/dropzone/css/basic.css \
+  lib/dropzone/css/dropzone.css \
   css/method-draw.css \
 
 JS_INPUT_FILES=$(addprefix editor/, $(JS_FILES))
@@ -67,7 +72,7 @@ $(PACKAGE): $(COMPILED_JS) $(COMPILED_CSS)
 	-find $(PACKAGE) -name .git -type d | xargs rm -rf {} \;
 
 	# Create the release version of the main HTML file.
-	build/tools/ship.py --i=editor/index.html --on=svg_edit_release > $(PACKAGE)/index.html
+	build/tools/ship.py --i=editor/index.php --on=svg_edit_release > $(PACKAGE)/index.html
 
 # NOTE: Some files are not ready for the Closure compiler: (jquery)
 # NOTE: Our code safely compiles under SIMPLE_OPTIMIZATIONS

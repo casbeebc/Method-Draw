@@ -25,7 +25,6 @@ methodDraw.addExtension("biobutton-bacteria", function() {
     		svgCanvas.clearSelection();
     		svgCanvas.addToSelection([newImage]);
     		svgCanvas.setImageURL(url);            
-    		
     	}
 
 		return {

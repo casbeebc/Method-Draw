@@ -1,3 +1,16 @@
+<?php
+    
+    if(empty($_GET)) {
+        header("Location: index.php?id=".bin2hex(openssl_random_pseudo_bytes(4)));
+    } else {
+?>
+        <script type="text/javascript">
+            var NAPKIN_ID = "<? echo $_GET["id"]; ?>";
+        </script>
+<?
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <!-- removed for now, causes problems in Firefox: manifest="svg-editor.manifest" -->
@@ -13,6 +26,8 @@
   <link rel="stylesheet" href="lib/jgraduate/css/jgraduate.css" type="text/css"/>
   <link rel="stylesheet" href="css/method-draw.css" type="text/css"/>
   <link rel="stylesheet" href="css/fonts.css" type="text/css"/>
+  <link rel="stylesheet" href="lib/dropzone/css/basic.css" type="text/css"/>
+  <link rel="stylesheet" href="lib/dropzone/css/dropzone.css" type="text/css"/>
 <!--{endif}-->
   <meta name="apple-mobile-web-app-capable" content="yes"/>
 
@@ -30,6 +45,7 @@
   <script type="text/javascript" src="lib/jgraduate/jquery.jgraduate.js"></script>
   <script type="text/javascript" src="lib/contextmenu/jquery.contextMenu.js"></script>
   <script type="text/javascript" src="lib/jquery-ui/jquery-ui-1.8.17.custom.min.js"></script>
+  <script type="text/javascript" src="lib/dropzone/dropzone.js"></script>
   <script type="text/javascript" src="src/browser.js"></script>
   <script type="text/javascript" src="src/svgtransformlist.js"></script>
   <script type="text/javascript" src="src/math.js"></script>
@@ -48,6 +64,8 @@
   <script type="text/javascript" src="lib/jgraduate/jpicker.min.js"></script>
   <script type="text/javascript" src="lib/mousewheel.js"></script>
   <script type="text/javascript" src="extensions/ext-grid.js"></script>
+  <script type="text/javascript" src="extensions/ext-add_document.js"></script>
+
   
   <!-- bio buttons -->
   <script type="text/javascript" src="extensions/ext-biobutton-cell.js"></script>
@@ -598,6 +616,28 @@
 </div> <!-- svg_editor -->
 
 <div id="svg_source_editor">
+    <div id="svg_source_overlay"></div>
+    <div id="svg_source_container">
+        <!-- <form action="/file-upload"
+      class="dropzone"
+      id="my-awesome-dropzone"></form>
+        -->
+    </div>
+</div>
+
+<div id="add_document_window">
+    <div id="add_document_overlay"></div>
+    <div id="add_document_container">
+        <form action="upload.php"
+            class="dropzone"
+            id="my-awesome-dropzone">
+        </form>
+    </div>
+</div>
+
+
+<!--
+<div id="svg_source_editor">
 	<div id="svg_source_overlay"></div>
 	<div id="svg_source_container">
 		<div id="save_output_btns">
@@ -613,6 +653,7 @@
 		</div>
 	</div>
 </div>
+-->
 
 <div id="base_unit_container">
   <select id="base_unit">
@@ -646,6 +687,7 @@
 	<li><a href="#move_up">Bring Forward<span class="shortcut">⌘↑</span></a></li>
 	<li><a href="#move_down">Send Backward<span class="shortcut">⌘↓</span></a></li>
   <li><a href="#move_back">Send to Back<span class="shortcut">⌘⇧↓</span></a></li>
+  <li><a href="#add_document">Associate with document(s)...<span class="shortcut">⌘⇧A</span></li>
 </ul>
 
 </body>

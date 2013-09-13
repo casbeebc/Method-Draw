@@ -19,25 +19,25 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 <link rel="icon" type="image/png" href="images/logo.png"/>
 
-<!--{if svg_edit_release}-->
+<!--{if svg_edit_release}>
   <link rel="stylesheet" href="css/method-draw.compiled.css" type="text/css"/>
-<!--{else}>
+<!{else}-->
   <link rel="stylesheet" href="lib/jgraduate/css/jPicker.css" type="text/css"/>
   <link rel="stylesheet" href="lib/jgraduate/css/jgraduate.css" type="text/css"/>
   <link rel="stylesheet" href="css/method-draw.css" type="text/css"/>
   <link rel="stylesheet" href="css/fonts.css" type="text/css"/>
   <link rel="stylesheet" href="lib/dropzone/css/basic.css" type="text/css"/>
   <link rel="stylesheet" href="lib/dropzone/css/dropzone.css" type="text/css"/>
-<!{endif}-->
+<!--{endif}-->
   <meta name="apple-mobile-web-app-capable" content="yes"/>
 
 
   <script type="text/javascript" src="lib/jquery.js"></script>
 
 
-<!--{if svg_edit_release}-->
+<!--{if svg_edit_release}>
   <script type="text/javascript" src="method-draw.compiled.js"></script>
-<!--{else}>
+<!{else}-->
   <script type="text/javascript" src="lib/touch.js"></script>
   <script type="text/javascript" src="lib/js-hotkeys/jquery.hotkeys.min.js"></script>
   <script type="text/javascript" src="lib/jquerybbq/jquery.bbq.min.js"></script>
@@ -76,7 +76,7 @@
   <script type="text/javascript" src="lib/requestanimationframe.js"></script>
   
   <script type="text/javascript" src="lib/taphold.js"></script>
-<!{endif}-->
+<!--{endif}-->
 
 
 <title>Method Draw</title>
@@ -692,4 +692,3 @@
 
 </body>
 </html>
-

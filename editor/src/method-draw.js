@@ -1630,7 +1630,7 @@
 					$('#selLayerNames').removeAttr('disabled').val(currentLayerName);
 					
 					// Enable regular menu options
-					canv_menu.enableContextMenuItems('#delete,#cut,#copy,#move_front,#move_up,#move_down,#move_back');
+					canv_menu.enableContextMenuItems('#delete,#cut,#copy,#move_front,#move_up,#move_down,#move_back,#add_document');
 				}
 			};
 		
@@ -3563,6 +3563,9 @@
 						case 'move_back':
 							moveToBottomSelected();
 							break;
+				        case 'add_document':
+				            svgCanvas.runExtensions("addDocument", {selectedElements: svgCanvas.getSelectedElems()});
+				            break;
   						default:
  							if(svgedit.contextmenu && svgedit.contextmenu.hasCustomHandler(action)){
  								svgedit.contextmenu.getCustomHandler(action).call();
